@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Gradient Playground</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>
+          <a href="index.html" title="Go to Homepage">Gradient Playground</a>
+        </h1>
+      </div>
+
+      <div class="control">
+        <button class="mode">
+          <i class="bx bx-sun"></i>
+          <i class="bx bxs-moon"></i>
+        </button>
+        <button class="settings">
+          <i class="bx bxs-cog"></i>
+        </button>
+      </div>
+
+      <div class="menu">
+        <i class="bx bx-menu-alt-right open-icon"></i>
+        <i class="bx bx-x close-icon"></i>
+      </div>
+      <div class="settings-panel">
+        <h3>Color Preference</h3>
+        <div class="colors">
+          <div class="number-one">
+            <label for="choice1">Choice 1:</label>
+            <input type="color" id="choice1" />
+          </div>
+          <div class="number-two">
+            <label for="choice2">Choice 2:</label>
+            <input type="color" id="choice2" />
+          </div>
+        </div>
+        <div class="gradient-type">
+          <select name="gradient" id="gradientType">
+            <option value="radial">Radial</option>
+            <option value="linear">Linear</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="playground">
+        <div class="grid"></div>
+        <div class="display"></div>
+        <div class="options">
+          <div class="choices">
+            <p>First-color: <span id="first-color"></span></p>
+            <p>Second-color: <span id="second-color"></span></p>
+          </div>
+          <div class="reset">
+            <button type="reset" id="reset-btn">Reset</button>
+          </div>
+
+          <div class="syntax"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; <span id="current-date">2025</span> Jimna Karina</p>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
