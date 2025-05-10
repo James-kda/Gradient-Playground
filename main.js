@@ -6,7 +6,7 @@ const settingsBtn = document.querySelector(".settings");
 
 const choice1Input = document.getElementById("choice1");
 const choice2Input = document.getElementById("choice2");
-const gradientType = document.getElementById("gradientType");
+const gradientSelect = document.getElementById("gradientType");
 
 const display = document.querySelector(".display");
 
@@ -20,7 +20,13 @@ function preferenceColor() {
   const input1 = choice1Input.value;
   const input2 = choice2Input.value;
 
-  display.style.background = `radial-gradient(circle at center, ${input1}, ${input2})`;
+  const gradientType = gradientSelect.value;
+
+  if (gradientType === "radial") {
+    display.style.background = `radial-gradient(circle at center, ${input1}, ${input2})`;
+  } else {
+    display.style.background = `linear-gradient(to right, ${input1}, ${input2})`;
+  }
 
   color1.textContent = `${input1};`;
   color2.textContent = `${input2};`;
@@ -69,7 +75,13 @@ function generateGradient(tile) {
     console.log("Second color:", secondColor);
   }
 
-  display.style.background = `radial-gradient(circle at center, ${firstColor}, ${secondColor})`;
+  const gradientType = gradientSelect.value;
+
+  if (gradientType === "radial") {
+    display.style.background = `radial-gradient(circle at center, ${firstColor}, ${secondColor})`;
+  } else {
+    display.style.background = `linear-gradient(to right, ${firstColor}, ${secondColor})`;
+  }
 
   color1.textContent = `${firstColor};`;
   color2.textContent = `${secondColor};`;
