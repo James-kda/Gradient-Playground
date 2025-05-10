@@ -2,11 +2,29 @@ const toggleBtn = document.querySelector(".mode");
 
 const control = document.querySelector(".control");
 const menu = document.querySelector(".menu");
-settingsBtn = document.querySelector(".settings");
+const settingsBtn = document.querySelector(".settings");
+
+const choice1Input = document.getElementById("choice1");
+const choice2Input = document.getElementById("choice2");
+const gradientType = document.getElementById("gradientType");
+
+const display = document.querySelector(".display");
 
 const settingsPanel = document.querySelector(".settings-panel");
 
 const resetBtn = document.getElementById("reset-btn");
+
+function preferenceColor() {
+  const color1 = document.getElementById("first-color");
+  const color2 = document.getElementById("second-color");
+  const input1 = choice1Input.value;
+  const input2 = choice2Input.value;
+
+  display.style.background = `radial-gradient(circle at center, ${input1}, ${input2})`;
+
+  color1.textContent = `${input1};`;
+  color2.textContent = `${input2};`;
+}
 
 function createGrid() {
   const grid = document.querySelector(".grid");
@@ -30,13 +48,10 @@ function createGrid() {
   }
 }
 
-createGrid();
-
 let firstColor = null;
 let secondColor = null;
 
 function generateGradient(tile) {
-  const display = document.querySelector(".display");
   const color1 = document.getElementById("first-color");
   const color2 = document.getElementById("second-color");
 
@@ -81,8 +96,6 @@ function copyrightYear() {
   currentDate.textContent = `${year}`;
 }
 
-copyrightYear();
-
 menu.addEventListener("click", () => {
   menu.classList.toggle("open");
   control.classList.toggle("show");
@@ -108,3 +121,9 @@ resetBtn.addEventListener("click", (e) => {
 settingsBtn.addEventListener("click", () => {
   settingsPanel.classList.toggle("show");
 });
+
+choice1Input.addEventListener("input", preferenceColor);
+choice2Input.addEventListener("input", preferenceColor);
+
+createGrid();
+copyrightYear();
