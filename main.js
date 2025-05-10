@@ -28,8 +28,24 @@ function preferenceColor() {
     display.style.background = `linear-gradient(to right, ${input1}, ${input2})`;
   }
 
+  updateSyntax(gradientType, input1, input2);
+
   color1.textContent = `${input1};`;
   color2.textContent = `${input2};`;
+}
+
+function updateSyntax(gradientType, color1, color2) {
+  const syntaxEl = document.querySelector(".syntax");
+
+  let cssCode = "";
+
+  if (gradientType === "radial") {
+    cssCode = `background: radial-gradient(circle at center, ${color1}, ${color2});`;
+  } else {
+    cssCode = `background: linear-gradient(to right, ${color1}, ${color2});`;
+  }
+
+  syntaxEl.textContent = cssCode;
 }
 
 function createGrid() {
@@ -82,6 +98,8 @@ function generateGradient(tile) {
   } else {
     display.style.background = `linear-gradient(to right, ${firstColor}, ${secondColor})`;
   }
+
+  updateSyntax(gradientType, firstColor, secondColor);
 
   color1.textContent = `${firstColor};`;
   color2.textContent = `${secondColor};`;

@@ -205,6 +205,15 @@ main {
   flex-direction: column;
 }
 
+.syntax {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #111;
+  color: #0f0;
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
+
 footer {
   position: fixed;
   bottom: 0;
